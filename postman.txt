@@ -1,0 +1,54 @@
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({"value":9});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://api.themoviedb.org/3/movie/tt0080684/rating?api_key=5d512a07a1dfeb577fbda97e63d94d29&session_id=adfc630d304565166a687caf559351c88f99ac06", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+
+
+
+  {
+    "page": 1,
+    "results": [
+        {
+            "id": 1891,
+            "video": false,
+            "vote_count": 10559,
+            "vote_average": 8.4,
+            "title": "The Empire Strikes Back",
+            "release_date": "1980-05-20",
+            "original_language": "en",
+            "original_title": "The Empire Strikes Back",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "backdrop_path": "/amYkOxCwHiVTFKendcIW0rSrRlU.jpg",
+            "adult": false,
+            "overview": "The epic saga continues as Luke Skywalker, in hopes of defeating the evil Galactic Empire, learns the ways of the Jedi from aging master Yoda. But Darth Vader is more determined than ever to capture Luke. Meanwhile, rebel leader Princess Leia, cocky Han Solo, Chewbacca, and droids C-3PO and R2-D2 are thrown into various stages of capture, betrayal and despair.",
+            "poster_path": "/9SKDSFbaM6LuGqG1aPWN3wYGEyD.jpg",
+            "popularity": 38.056,
+            "rating": 9.0
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 1
+}
+
+
+
+{
+    "status_code": 13,
+    "status_message": "The item/record was deleted successfully."
+}
